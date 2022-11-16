@@ -2,6 +2,7 @@
 import cmpt120image
 
 def recolorImage(img,color):
+  canvas = cmpt120image.getBlackImage(height,width)
   def iswhite(pixel):
     r = pixel[0]
     g = pixel[1]
@@ -12,10 +13,10 @@ def recolorImage(img,color):
   for row in range(height):
     for col in range(width):
       if iswhite(img[row][col]):
-        pass
+        canvas[row][col] = img[row][col]
       else:
-        img[row][col] = color
-  cmpt120image.showImage(img)
+        canvas[row][col] = color
+  return canvas
 
 def minify(img):
   height = len(img)
@@ -31,8 +32,7 @@ def mirror(img):
     for col in range(width-1, -1, -1):
       canvas[row][counter] = (img[row][col])
       counter += 1
-  cmpt120image.showImage(canvas)
-  x = input()
+  return canvas
   
 # def drawItem(img,item,row,col):
 #   # Add your code here
@@ -41,6 +41,6 @@ def mirror(img):
 #   # Add your code here
 
 img = cmpt120image.getImage("apples.png")
-# recolorImage(img,[255,0,0])
+recolorImage(img,[255,0,0])
 mirror(img)
 
