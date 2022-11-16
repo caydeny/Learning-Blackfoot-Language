@@ -23,19 +23,16 @@ def minify(img):
 
   
 def mirror(img):
-  
-  cmpt120image.showImage(img)
+  height = len(img)
+  width = len(img[0])
+  canvas = cmpt120image.getBlackImage(height,width)
+  for row in range(height): 
+    counter = 0
+    for col in range(width-1, -1, -1):
+      canvas[row][counter] = (img[row][col])
+      counter += 1
+  cmpt120image.showImage(canvas)
   x = input()
-  # output = cmpt120image.getBlackImage(80,80)
-  # height = len(img)
-  # width = len(img[0])
-  # for coloumn in range(height):  
-  #   for row in range(width, -1, -1):
-  #     print(row)
-  # cmpt120image.showImage(output)
-  # x = input()
-  
-
   
 # def drawItem(img,item,row,col):
 #   # Add your code here
@@ -44,6 +41,6 @@ def mirror(img):
 #   # Add your code here
 
 img = cmpt120image.getImage("apples.png")
-recolorImage(img,[255,0,0])
+# recolorImage(img,[255,0,0])
 mirror(img)
 
