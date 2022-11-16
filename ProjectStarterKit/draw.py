@@ -3,6 +3,11 @@
 import cmpt120image
 
 def recolorImage(img,color):
+  def iswhite(pixel):
+    r = pixel[0]
+    g = pixel[1]
+    b = pixel[2]
+    return r < 30 and g > 225 and b < 30
   # Add your code here
 
 def minify(img):
