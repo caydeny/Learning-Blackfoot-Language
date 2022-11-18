@@ -23,8 +23,28 @@ def recolorImage(img,color):
 def minify(img):
   height = len(img)
   width = len(img[0])
-  canvas = cmpt120image.getBlackImage(height/2,width/2)
-  
+  x = (height/2)
+  y = (width/2)
+  canvas = cmpt120image.getBlackImage(int(x),int(y))
+  for row in range(0,height,2):
+    for col in range(0,width,2):
+      r = 0
+      g = 0
+      b = 0
+      for i in range(2):
+        for j in range(2):
+          r += img[row + i][col + j][0]
+          g += img[row + i][col + j][1]
+          b += img[row + i][col + j][2]
+      r = r/4
+      g = g/4
+      b = b/4
+      list = [r, g, b]
+      canvas[int(row/2)][int(col/2)] = list
+  return canvas
+
+
+
 def mirror(img):
   height = len(img)
   width = len(img[0])   
@@ -43,6 +63,7 @@ def mirror(img):
 #   # Add your code here
 
 img = cmpt120image.getImage("apples.png")
+minify(img)
 recolorImage(img,[255,0,0])
 mirror(img)
 
