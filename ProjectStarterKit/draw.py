@@ -2,6 +2,8 @@
 import cmpt120image
 
 def recolorImage(img,color):
+  height = len(img)
+  width = len(img[0])  
   canvas = cmpt120image.getBlackImage(height,width)
   def iswhite(pixel):
     r = pixel[0]
@@ -21,11 +23,11 @@ def recolorImage(img,color):
 def minify(img):
   height = len(img)
   width = len(img[0])
-
+  canvas = cmpt120image.getBlackImage(height/2,width/2)
   
 def mirror(img):
   height = len(img)
-  width = len(img[0])
+  width = len(img[0])   
   canvas = cmpt120image.getBlackImage(height,width)
   for row in range(height): 
     counter = 0
