@@ -1,5 +1,6 @@
 # Your header
 import cmpt120image
+import random
 
 def isBlack(pixel):
     r = pixel[0]
@@ -65,20 +66,25 @@ def drawItem(canvas,item,row,col):
   for i in range(imgHeight):
     for j in range(imgWidth):
       if isBlack(img[i][j]):
-        canvas[row+i][col+j] = img[i][j]
-  # return result
-  cmpt120image.showImage(canvas)
+        canvas[row+i][col+j] = item[i][j]
+  return canvas
+  
 
 
-#def distributeItems(canvas,item,n):
-#   # Add your code here
-
-
+def distributeItems(canvas,item,n):
+  imgHeight = len(item)
+  imgWidth = len(item[0])
+  for i in range(n):
+    xcoord = random.randint(0,imgWidth)
+    ycoord = random.randint(0,imgHeight)
+    canvas = drawItem(canvas,img,ycoord,xcoord)
+  return canvas
 
 img = cmpt120image.getImage("child.png")  
 #img = cmpt120image.getImage("apples.png")
 #minify(img)
 #recolorImage(img,[255,0,0])
 #mirror(img)
-drawItem(cmpt120image.getWhiteImage(400, 300),img, 100, 0)
+distributeItems(cmpt120image.getWhiteImage(400, 300),img,4)
+#drawItem(cmpt120image.getWhiteImage(400, 300),img, 100, 0)
 input()
