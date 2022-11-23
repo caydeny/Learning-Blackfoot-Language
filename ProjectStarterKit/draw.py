@@ -1,4 +1,7 @@
-# Your header
+# Draw.py
+# Cayden Yoo and Clifton Tan
+# November 23rd 2022
+
 import cmpt120image
 import random
 
@@ -19,7 +22,6 @@ def recolorImage(img,color):
       if isBlack(img[row][col]):
         result[row][col] = color
   return result
-  cmpt120image.showImage(result)
   
 def minify(img):
   imgHeight = len(img)
@@ -43,9 +45,6 @@ def minify(img):
       list = [r, g, b]
       result[int(row/2)][int(col/2)] = list
   return result
-  #cmpt120image.showImage(result)
-
-
 
 def mirror(img):
   imgHeight = len(img)
@@ -57,7 +56,6 @@ def mirror(img):
       result[row][counter] = (img[row][col])
       counter += 1
   return result
-  #cmpt120image.showImage(result)
  
 def drawItem(canvas,item,row,col):
   imgHeight = len(item)
@@ -65,11 +63,9 @@ def drawItem(canvas,item,row,col):
   canvas[row][col] = item[0][0]
   for i in range(imgHeight):
     for j in range(imgWidth):
-      if isBlack(img[i][j]):
+      if isBlack(item[i][j]):
         canvas[row+i][col+j] = item[i][j]
   return canvas
-  
-
 
 def distributeItems(canvas,item,n):
   imgHeight = len(item)
@@ -77,14 +73,5 @@ def distributeItems(canvas,item,n):
   for i in range(n):
     xcoord = random.randint(0,imgWidth)
     ycoord = random.randint(0,imgHeight)
-    canvas = drawItem(canvas,img,ycoord,xcoord)
+    canvas = drawItem(canvas,item,ycoord,xcoord)
   return canvas
-
-img = cmpt120image.getImage("child.png")  
-#img = cmpt120image.getImage("apples.png")
-#minify(img)
-#recolorImage(img,[255,0,0])
-#mirror(img)
-distributeItems(cmpt120image.getWhiteImage(400, 300),img,4)
-#drawItem(cmpt120image.getWhiteImage(400, 300),img, 100, 0)
-input()
