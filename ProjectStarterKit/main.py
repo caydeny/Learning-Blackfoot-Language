@@ -27,3 +27,36 @@ def playSound(soundfilename,env):
 
 ENV = initEnv()
 ###############################################################
+
+def main():
+    user_selection = 0
+    while user_selection != 4:
+        print("MAIN MENU")
+        print("1. Learn - Word Flashcards")
+        print("2. Play - Seek and Find Game")
+        print("3. Settings")
+        print("4. Exit")
+
+        user_selection = int(input("Choose an Option: "))
+
+        if user_selection == 1:
+            learn()
+        elif user_selection == 2:
+            play()
+        elif user_selection == 3:
+            settings()
+        else:
+            print("Please enter a number between 1-3")
+
+def learn():
+    file = open("blackfoot.csv")
+    for line in file:
+        datalist = line.split(",")
+
+def play():
+
+
+def settings():
+    
+
+main()
