@@ -72,7 +72,7 @@ def learn(number_of_words):
 def play(number_of_words):
     yes_or_no = ["yes", "no"]
 
-    print("\nLEARN")
+    print("\nPLAY")
     num_of_rounds = input("How many rounds would you like to play?")
     while True:
         if num_of_rounds.isdigit():
@@ -80,7 +80,7 @@ def play(number_of_words):
             break
         else:
             print("Please enter a number")
-
+            
     for i in range(num_of_rounds):
         words_to_shuffle = []
         canvas = cmpt120image.getWhiteImage(300,400)
@@ -90,7 +90,7 @@ def play(number_of_words):
 
         word = random.choice(words_to_shuffle)
 
-        for g in range(len(words_to_shuffle)):
+        for g in range(number_of_words):
             img = cmpt120image.getImage("images/" + lst[g]+".png")
             number_of_imgs = random.randint(1,4)
 

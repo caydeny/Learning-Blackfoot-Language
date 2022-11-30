@@ -68,10 +68,18 @@ def drawItem(canvas,item,row,col):
   return canvas
 
 def distributeItems(canvas,item,n):
-  imgHeight = len(item)
-  imgWidth = len(item[0])
+  canvasHeight = len(img)
+  canvasWidth = len(img[0])
   for i in range(n):
-    xcoord = random.randint(0,300)
-    ycoord = random.randint(0,400)
+    xcoord = random.randint(0,canvasWidth)
+    ycoord = random.randint(0,canvasHeight)
     canvas = drawItem(canvas,item,ycoord,xcoord)
   return canvas
+
+canvas = cmpt120image.getWhiteImage(300,400)
+img = cmpt120image.getImage("images/apples.png")
+n = 2
+
+canvas = distributeItems(canvas,img,n)
+cmpt120image.showImage(canvas)
+input()
