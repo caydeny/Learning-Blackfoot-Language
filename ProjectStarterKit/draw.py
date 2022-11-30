@@ -71,7 +71,7 @@ def distributeItems(canvas,item,n):
   imgHeight = len(item)
   imgWidth = len(item[0])
   for i in range(n):
-    xcoord = random.randint(0,imgWidth)
-    ycoord = random.randint(0,imgHeight)
+    xcoord = random.randint(0,300)
+    ycoord = random.randint(0,400)
     canvas = drawItem(canvas,item,ycoord,xcoord)
   return canvas
