@@ -57,29 +57,23 @@ def mirror(img):
       counter += 1
   return result
  
-def drawItem(canvas,item,row,col):
-  imgHeight = len(item)
-  imgWidth = len(item[0]) 
-  canvas[row][col] = item[0][0]
-  for i in range(imgHeight):
-    for j in range(imgWidth):
-      if isBlack(item[i][j]):
-        canvas[row+i][col+j] = item[i][j]
+def drawItem(canvas,item,r,c):
+  height_item = len(item) # Rows
+  width_item = len(item[0]) # Columns
+  
+  for row in range(0,height_item):
+    for col in range(0,width_item):
+      if item[row][col][0] < 230 or \
+         item[row][col][1] < 230 or \
+         item[row][col][2] < 230:   # V2: Test for non-white
+        canvas[r+row][c+col] = item[row][col]
   return canvas
 
 def distributeItems(canvas,item,n):
-  canvasHeight = len(img)
-  canvasWidth = len(img[0])
+  canvasHeight = len(canvas)
+  canvasWidth = len(canvas[0])
   for i in range(n):
     xcoord = random.randint(0,canvasWidth)
     ycoord = random.randint(0,canvasHeight)
     canvas = drawItem(canvas,item,ycoord,xcoord)
   return canvas
-
-canvas = cmpt120image.getWhiteImage(300,400)
-img = cmpt120image.getImage("images/apples.png")
-n = 2
-
-canvas = distributeItems(canvas,img,n)
-cmpt120image.showImage(canvas)
-input()

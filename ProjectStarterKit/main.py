@@ -59,13 +59,13 @@ def main(number_of_words):
 def learn(number_of_words):
     print("\nLEARN")
     for i in range(number_of_words):
-        canvas = cmpt120image.getWhiteImage(300,400)
+        canvas = cmpt120image.getWhiteImage(400,300)
         item = cmpt120image.getImage("images/" + (lst[i])+".png")
         img = draw.drawItem(canvas, item,0,0)
         cmpt120image.showImage(img)
         playSound(lst[i], ENV)
         input("Click enter to continue")
-    img = cmpt120image.getWhiteImage(300,400)
+    img = cmpt120image.getWhiteImage(400,300)
     cmpt120image.showImage(img)
     print("")
 
@@ -83,7 +83,7 @@ def play(number_of_words):
             
     for i in range(num_of_rounds):
         words_to_shuffle = []
-        canvas = cmpt120image.getWhiteImage(300,400)
+        canvas = cmpt120image.getWhiteImage(400,300)
 
         for j in range(number_of_words):
             words_to_shuffle.append(lst[j])
