@@ -70,10 +70,12 @@ def drawItem(canvas,item,r,c):
   return canvas
 
 def distributeItems(canvas,item,n):
-  canvasHeight = len(canvas)
-  canvasWidth = len(canvas[0])
+  height_canvas = len(canvas) 
+  width_canvas = len(canvas[0])
+  height_item = len(item)
+  width_item = len(item[0])
   for i in range(n):
-    xcoord = random.randint(0,canvasWidth)
-    ycoord = random.randint(0,canvasHeight)
-    canvas = drawItem(canvas,item,ycoord,xcoord)
+    r = random.randint(0,height_canvas-height_item)
+    c = random.randint(0,width_canvas-width_item)
+    canvas = drawItem(canvas,item,r,c)
   return canvas

@@ -73,8 +73,8 @@ def play(number_of_words):
     yes_or_no = ["yes", "no"]
 
     print("\nPLAY")
-    num_of_rounds = input("How many rounds would you like to play?")
     while True:
+        num_of_rounds = input("How many rounds would you like to play?")
         if num_of_rounds.isdigit():
             num_of_rounds = int(num_of_rounds)
             break
@@ -90,11 +90,19 @@ def play(number_of_words):
 
         word = random.choice(words_to_shuffle)
 
-        for g in range(number_of_words):
-            img = cmpt120image.getImage("images/" + lst[g]+".png")
+        for x in range(number_of_words):
+            img = cmpt120image.getImage("images/" + lst[x]+".png")
             number_of_imgs = random.randint(1,4)
 
-            if word == lst[g]:
+            r = random.randint(0,255)
+            g = random.randint(0,255)
+            b = random.randint(0,255)
+
+            rgb = [r,g,b]
+
+            img = draw.recolorImage(img,rgb)
+
+            if word == lst[x]:
                 answer = number_of_imgs
 
             minify = random.choice(yes_or_no)
@@ -132,4 +140,4 @@ def settings():
             print("Please enter a number between 3-12\n")
 
 
-main(4)
+main(3)
