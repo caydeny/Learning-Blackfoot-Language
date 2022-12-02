@@ -31,8 +31,11 @@ def playSound(soundfilename,env):
 ENV = initEnv()
 ###############################################################
 
-lst = ["apples","bread","burger","child","coffee",
-"dog","door","eggs","fish","oranges","salt","tipi"]
+
+file = open("blackfoot.csv")
+lst = []
+for line in file:
+    lst.append(line.strip("\n"))
 
 def main(number_of_words):
     user_selection = 0
