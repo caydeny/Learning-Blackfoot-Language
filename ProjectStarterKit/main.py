@@ -122,11 +122,7 @@ def play(number_of_words):
         while isTrue:
             user_guess = input("Listen to the word. How many of them can you find? ")
             if user_guess.isdigit():
-<<<<<<< HEAD
-                if user_guess == answer:
-=======
                 if int(user_guess) == answer:
->>>>>>> 3e005fe84b6df092e2f6dedc9909dc3620094870
                     input("Right! Click enter to continue.")
                     isTrue = False
                 else:
