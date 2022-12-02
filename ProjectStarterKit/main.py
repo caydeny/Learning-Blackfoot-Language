@@ -43,28 +43,28 @@ def main(number_of_words):
         print("3. Settings")
         print("4. Exit")
 
-        user_selection = int(input("Choose an Option: "))
-
-        if user_selection == 1:
+        user_selection = str(input("Choose an Option: "))
+        options = ['1','2','3','4']
+        if user_selection == options[0]:
             learn(number_of_words)
-        elif user_selection == 2:
+        elif user_selection == options[1]:
             play(number_of_words)
-        elif user_selection == 3:
+        elif user_selection == options[2]:
             number_of_words = settings()
-        elif user_selection == 4:
+        elif user_selection == options[3]:
             break
         else:
-            print("Please enter a number between 1-4")
+            print("Please enter a number between 1-4\n")
 
 def learn(number_of_words):
     print("\nLEARN")
     for i in range(number_of_words):
         canvas = cmpt120image.getWhiteImage(400,300)
         item = cmpt120image.getImage("images/" + (lst[i])+".png")
-        img = draw.drawItem(canvas, item,0,0)
+        img = draw.distributeItems(canvas, item, 1)
         cmpt120image.showImage(img)
         playSound(lst[i], ENV)
-        input("Click enter to continue")
+        input("Click enter to continue.")
     img = cmpt120image.getWhiteImage(400,300)
     cmpt120image.showImage(img)
     print("")
@@ -74,12 +74,12 @@ def play(number_of_words):
 
     print("\nPLAY")
     while True:
-        num_of_rounds = input("How many rounds would you like to play?")
+        num_of_rounds = input("How many rounds would you like to play? ")
         if num_of_rounds.isdigit():
             num_of_rounds = int(num_of_rounds)
             break
         else:
-            print("Please enter a number")
+            print("Please enter a number.")
             
     for i in range(num_of_rounds):
         words_to_shuffle = []
@@ -117,14 +117,23 @@ def play(number_of_words):
         
         cmpt120image.showImage(canvas)
         playSound(word, ENV)
-
-        user_guess = int(input("Listen to the word. How many of them can you find? "))
-
-        if user_guess == answer:
-            input("Right! Click enter to continue: ")
-        else:
-            input("Wrong! Click enter to continue: ")  
-
+        
+        isTrue = True
+        while isTrue:
+            user_guess = input("Listen to the word. How many of them can you find? ")
+            if user_guess.isdigit():
+<<<<<<< HEAD
+                if user_guess == answer:
+=======
+                if int(user_guess) == answer:
+>>>>>>> 3e005fe84b6df092e2f6dedc9909dc3620094870
+                    input("Right! Click enter to continue.")
+                    isTrue = False
+                else:
+                    input("Wrong! Click enter to continue.\n") 
+                    isTrue = False
+            else:
+                print("Please input a number.") 
 
 def settings():
     print("\nOPTIONS")
@@ -138,6 +147,5 @@ def settings():
                 print("Please enter a number between 3-12\n")
         else:
             print("Please enter a number between 3-12\n")
-
 
 main(3)
