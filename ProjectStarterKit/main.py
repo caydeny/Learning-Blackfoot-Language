@@ -91,10 +91,10 @@ def play(number_of_words):
         for j in range(number_of_words):
             words_to_shuffle.append(lst[j])
 
-        word = random.choice(words_to_shuffle)
-
-        for x in range(number_of_words):
-            img = cmpt120image.getImage("images/" + lst[x]+".png")
+        random.shuffle(words_to_shuffle)
+        for x in range(3):
+            word = words_to_shuffle[x]
+            img = cmpt120image.getImage("images/" + words_to_shuffle[x]+".png")
             number_of_imgs = random.randint(1,4)
 
             r = random.randint(0,255)
@@ -105,7 +105,7 @@ def play(number_of_words):
 
             img = draw.recolorImage(img,rgb)
 
-            if word == lst[x]:
+            if word == words_to_shuffle[x]:
                 answer = number_of_imgs
 
             minify = random.choice(yes_or_no)
@@ -143,7 +143,7 @@ def settings():
                 number_of_words = int(question)
                 return number_of_words
             else:
-                print("Please enter a number between 3-12\n")
+                print("Please enter a number between 3-13\n")
         else:
             print("Please enter a number between 3-12\n")
 
