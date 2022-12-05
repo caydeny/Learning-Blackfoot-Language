@@ -1,3 +1,7 @@
+# Final Project
+# Clifton Tan and Cayden Yoo
+# Dec 5th, 2022
+
 import pygame
 import cmpt120image
 import draw
